@@ -282,7 +282,7 @@
                         liked_num.text(data['liked_num']);
                     }else{
                         if(data['code']==400){
-                            $('#login_modal').modal('show');
+                            window.location.href = '{% url 'login' %}?from={{ request.GET.from }}';
                         }else{
                             alert(data['message']);    
                         }                        
@@ -292,27 +292,6 @@
                     console.log(xhr)
                 }
             });
-        }
-        $("#login_medal_form").submit(function(event){
-            event.preventDefault();
-            $.ajax({
-                url: '{% url "login_for_medal" %}',
-                type: 'POST',
-                data: $(this).serialize(),
-                cache: false,
-                success: function(data){
-                    if(data['status']=='SUCCESS'){
-                        window.location.reload();
-                    }else{
-                        $('#login_medal_tip').text('用户名或密码不正确');
-                    }
-                }
-            });
-        });
-        if (window.location.hash) {
-            $('html').animate({
-                scrollTop: $(window.location.hash).offset().top - 60
-            }, 500);
         }
     </script>
 {% endblock %}

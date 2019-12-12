@@ -73,7 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # 自己写的
-                'user.context_processors.login_modal_form',
+                # 'user.context_processors.login_modal_form',
                 # 第三方登陆
                 # 'social_django.context_processors.backends',
                 # 'social_django.context_processors.login_redirect',
